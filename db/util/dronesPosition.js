@@ -14,11 +14,13 @@ const getAllDronesPosition = () => {
           return [];
           //
         }      
-        const dronesResponse = drones.map(({initalPosition,name,quadrant})=>(
-            {
-              currentPosition: calculateDronePosition(initalPosition),
-              id : name,
-              quadrant
+        const dronesResponse = drones.map(({droneId,initalPosition,name,quadrant})=>(
+            {              
+              droneId,
+              name,
+              quadrant,
+              initalPosition,             
+              currentPosition: calculateDronePosition(initalPosition)
             }
           )
         );

@@ -1,10 +1,13 @@
 # Locate Drone Position Assignment
 Project will expose REST API to manage application to manage drone current position.
-Drone can have name , id ,initial position.
+Drone can have name , droneId ,initial position.
 # Deployment :
 git clone git@github.com:shivshankerjiit/locateDrones.git
 npm install 
 npm run start
+
+# Local URL
+http://localhost:3000/
 
 # API :
   # GET / 
@@ -12,10 +15,11 @@ npm run start
        List of all drones with current position
   # POST /drone
        Add drone
-  # DELETE /drone/:id
+  # DELETE /drone/:droneId
        Delete drone
 
 # Assumption : 
+MongoDB server running on : Port : 27017 , 
 Current position of drone is determined by mathematical equation of circle.
               x = x(i) - r*cos t ,
               y = y(i) - r*sin t ,

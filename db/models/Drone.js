@@ -8,18 +8,18 @@ const DroneSchema = new Schema({
   },
   initalPosition : {
     x: {
-      type : String,
+      type : Number,
       trim : true,
       required : [true, 'X coordinate is required'] 
     },
     y: {
-      type : String,
+      type : Number,
       trim : true,
       required : [true, 'Y coordinate is required'] 
     }
   },
   quadrant : {
-    type : String,
+    type : Number,
     trim : true,
     required : [true, 'Quadrant is required'],
     validate : {

@@ -10,17 +10,6 @@ require('./src/config/config');
 
 const PORT = process.env.PORT;
 
-const data1 =  [
-  {
-  label: 'somethingA',
-  values: [{x: 0, y: 2}, {x: 1.3, y: 5}, {x: 3, y: 6}, {x: 3.5, y: 6.5}, {x: 4, y: 6}, {x: 4.5, y: 6}, {x: 5, y: 7}, {x: 5.5, y: 8}]
-  },
-  {
-  label: 'somethingB',
-  values: [{x: 0, y: 3}, {x: 1.3, y: 4}, {x: 3, y: 7}, {x: 3.5, y: 8}, {x: 4, y: 7}, {x: 4.5, y: 7}, {x: 5, y: 7.8}, {x: 5.5, y: 9}]
-  }
-];
-
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -30,13 +19,14 @@ app.use(cors());
 io.on('connection', (socket) => {
   console.log('New user connected');  
   setInterval(()=>{
-    const drones = getAllDronesPosition();
-    socket.emit('nextPosition',{
-      data : data1,
-      dronesPosition : drones
-    });
-  }, PORT);
- 
+    getAllDronesPosition()
+      .then((drones)=>{
+        socket.emit('nextPosition',{
+          data : data1,
+          dronesPosition : drones
+        });
+      });    
+  }, PORT); 
   socket.on('disconnect', ()=>{
     console.log('User was disconnected');
   })
