@@ -1,0 +1,25 @@
+{
+  "name": "housinganywhereapi",
+  "version": "1.0.0",
+  "description": "Locate Drones",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha **/*.test.js"
+  },
+  "author": "shiv shankar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "mongoose": "^5.2.8",
+    "nodemon": "^1.18.9",
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
